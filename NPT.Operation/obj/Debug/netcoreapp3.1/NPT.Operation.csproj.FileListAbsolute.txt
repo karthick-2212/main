@@ -1,0 +1,19 @@
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.deps.json
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.dll
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.pdb
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.AssemblyInfo.cs
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.dll
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.pdb
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.deps.json
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.dll
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Operation.pdb
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.AssemblyInfoInputs.cache
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.AssemblyInfo.cs
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.csproj.CoreCompileInputs.cache
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.dll
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.Operation.pdb

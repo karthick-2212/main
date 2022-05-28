@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse navbar-fixed-top bg-wells">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand mr-3">Welcome - Name Pronunciation Tool</a>
+        </div>
+       
+        <ul class="navbar-nav">
+            <li>
+                <i class="fs-5 bi bi-person-circle"></i>
+                <span style="padding-left: 5px;">{{loggedinUsername}}</span><span>&nbsp;- &nbsp;<a (click)="logout()" style="cursor: pointer;" title="Sign-Out"><i
+                    class="bi bi-power"></i></a></span>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+
+<app-menu></app-menu>

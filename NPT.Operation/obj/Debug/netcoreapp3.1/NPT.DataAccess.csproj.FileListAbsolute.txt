@@ -1,0 +1,13 @@
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.DataAccess.deps.json
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.DataAccess.dll
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.DataAccess.pdb
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\bin\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.AssemblyInfo.cs
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.csproj.CopyComplete
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.dll
+C:\Users\Admin\TeamCrypto\NPT\NPT.Operation\obj\Debug\netcoreapp3.1\NPT.DataAccess.pdb

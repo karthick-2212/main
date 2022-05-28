@@ -1,0 +1,29 @@
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfo.cs
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.deps.json
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\user\source\repos\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.deps.json
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfoInputs.cache
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfo.cs
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.csproj.CoreCompileInputs.cache
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\Anil Kalwakuntla\source\repos\TeamCrypto1\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.deps.json
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\bin\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfoInputs.cache
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.AssemblyInfo.cs
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.csproj.CoreCompileInputs.cache
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.dll
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.pdb
+C:\Users\Admin\TeamCrypto\NPT\NPT.Model\obj\Debug\netcoreapp3.1\NPT.Model.csproj.AssemblyReference.cache

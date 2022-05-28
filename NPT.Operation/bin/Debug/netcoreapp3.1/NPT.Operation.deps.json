@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "NPT.Operation/1.0.0": {
+        "runtime": {
+          "NPT.Operation.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NPT.Operation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

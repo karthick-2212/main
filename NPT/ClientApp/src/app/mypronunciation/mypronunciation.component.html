@@ -1,0 +1,315 @@
+<div class="container">
+
+    <div id="loader" *ngIf="showloader"></div>
+
+    <div class="card">
+        <div class="card-header" (click)="ismyInfoHidden=!ismyInfoHidden">
+            <i class="bi bi-people"></i><span>&nbsp;&nbsp;My Info</span>
+            <div style="float:right">
+                <i class="fs-4 bi bi-arrow-up-circle-fill" [hidden]="ismyInfoHidden"></i>
+                <i class="fs-4 bi bi-arrow-down-circle-fill" [hidden]="!ismyInfoHidden"></i>
+            </div>
+        </div>
+        <div class="card-body" [hidden]="ismyInfoHidden">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label class="control-label">
+                        Employee ID:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.employeeId}}
+                    </label>
+                </div>
+                <div class="col-8">
+                    <label class="control-label">
+                        Email:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.emailAddress}}
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label class="control-label">
+                        Full Name:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.fullname}}
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="control-label">
+                         Lan ID:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.lanid}}
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="control-label">
+                        Phone:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.phone}}
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label class="control-label">
+                        <b> Is Admin ? :</b>
+                    </label>
+                    <label class="control-label">
+                        <input type="radio" id="admintrue" [value]="true" disabled="true"
+                            [(ngModel)]="pronunciationUserDetailresponse.isAdmin">
+                        <label for="admintrue">True</label>
+                        &nbsp;&nbsp;<input type="radio" id="adminfalse" [value]="false" disabled="true"
+                            [(ngModel)]="pronunciationUserDetailresponse.isAdmin">
+                        <label for="adminfalse">False</label>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="control-label">
+                        Manager Name:
+                    </label>
+                    <label class="control-label">
+                        {{ pronunciationUserDetailresponse.managername}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <ng-container *ngIf="pronunciationUserDetailresponse.isCustomPronunciationAvailable">
+        <div class="card">
+            <div class="card-header" (click)="ispronunciationHidden=!ispronunciationHidden">
+                <i class="fs-4 bi bi-mic"></i><span>Custom Pronunciation</span>
+                <div style="float:right">
+                    <i class="fs-4 bi bi-arrow-up-circle-fill" [hidden]="ispronunciationHidden"></i>
+                    <i class="fs-4 bi bi-arrow-down-circle-fill" [hidden]="!ispronunciationHidden"></i>
+                </div>
+            </div>
+            <div class="card-body" [hidden]="ispronunciationHidden">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label class="control-label">
+                            <b> Custom Pronunciation:</b>
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <audio [src]="sanitize(audioSource)" id="audio" controls #audioTag class="form-control">
+                        </audio>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label class="control-label">
+                            OverridedStandardPronunciation ?
+                        </label>
+                        <div class="form-check form-check-inline">
+                            &nbsp;&nbsp; <input class="form-check-input" type="checkbox"
+                                name="OverrideStandardPronunciationview" disabled="true"
+                                id="OverrideStandardPronunciationview"
+                                [checked]="pronunciationUserDetailresponse.overrideStandardPronunciation">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">
+                            Created By:
+                        </label>
+                        <label class="control-label">
+                            {{this.pronunciationUserDetailresponse.createdby}}
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">
+                            Created On:
+                        </label>
+                        <label class="control-label">
+                            {{this.pronunciationUserDetailresponse.lastUpdatedDate | date:"MM/dd/yyyy"}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-sm-4">
+                        <label class="control-label">
+                            Comments :
+                        </label>
+                        <label class="control-label">
+                            {{this.pronunciationUserDetailresponse.comments}}
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" style="cursor: pointer;" (click)="editPronunciation()">Edit</button>
+                    <button class="btn btn-danger" style="cursor: pointer;"
+                        (click)="deletePronunciation()">Delete</button>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+    <br />
+    <div class="card">
+        <div class="card-header" (click)="isstandardpronunciationHidden=!isstandardpronunciationHidden">
+            <i class="fs-4 bi bi-mic"></i><span>Standard Pronunciation</span>
+            <div style="float:right">
+                <i class="fs-4 bi bi-arrow-up-circle-fill" [hidden]="isstandardpronunciationHidden"></i>
+                <i class="fs-4 bi bi-arrow-down-circle-fill" [hidden]="!isstandardpronunciationHidden"></i>
+            </div>
+        </div>
+        <div class="card-body" [hidden]="isstandardpronunciationHidden">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <label class="control-label">
+                        * Note : We enabled Standard Pronunciation based on Country.
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <label class="control-label">
+                        Country :
+                    </label>
+                </div>
+                <div class="col-4" class="control-label">
+                    <select class="form-control" id="exampleFormControlSelect2" [(ngModel)]="selectedcountry">
+                        <option value="">--SELECT--</option>
+                        <option value="en-IN-PrabhatNeural">India</option>
+                        <option value="en-US-AriaNeural">USA</option>
+                        <option value="en-GB-LibbyNeural">UK</option>
+                        <option value="ja-JP-NanamiNeural">Japan</option>
+                        <option value="zh-HK-HiuGaaiNeural">China</option>
+                        <option value="ru-RU-DariyaNeural">Russia</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <label class="control-label">
+                        Voice Speed :
+                    </label>
+                </div>
+                <div class="col-sm-10" class="control-label">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="Slow" [(ngModel)]="selectedvoicespeed">
+                        <label class="form-check-label" for="inlineRadio1">Slow</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="Fast" [(ngModel)]="selectedvoicespeed">
+                        <label class="form-check-label" for="inlineRadio2">Fast</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-10">
+                    <button class="btn btn-primary" [disabled]="(selectedcountry=='')?true:false"
+                        style="cursor: pointer;" (click)="getStandardPronunciation()"> <i class="bi bi-mic"></i>Standard
+                        Pronunciation</button>
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="!pronunciationUserDetailresponse.isCustomPronunciationAvailable">
+                <div class="col-sm-10">
+                    <label class="control-label"><b>
+                            Not Happy with the Standard Pronunciation,<a data-toggle="modal"
+                                data-target="#exampleModalCenter">Set your
+                                Custom
+                                Pronunciation <i class="bi bi-emoji-smile"></i></a></b>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <label class="modal-title" id="exampleModalLongTitle">Custom Pronunciation</label>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-8">
+                        <label class="control-label">
+                            Full Name:
+                        </label>
+                        <label class="control-label">
+                            {{ pronunciationUserDetailresponse.fullname}}
+                        </label>
+                    </div>
+                  
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label class="control-label">
+                            OverrideStandardPronunciation ?
+                        </label>
+                    </div>
+                    <div class="col-sm-5" class="control-label">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="OverrideStandardPronunciationopt"
+                                id="OverrideStandardPronunciation" value="true"
+                                [checked]="OverrideStandardPronunciation"
+                                (change)="onOverrideStandardPronunciationoptChanged(OverrideStandardPronunciation.checked)">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <button (click)="initiateRecording()" class="btn btn-primary" [disabled]="recording"
+                            style="cursor: pointer;"> <i class="bi bi-mic"></i>Start Recording </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button (click)="stopRecording()" class="btn btn-danger" [disabled]="!recording"
+                            style="cursor: pointer;"> <i class="bi bi-record-btn"></i>&nbsp;Stop Recording </button>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="recording">
+                    <div class="col-sm-8">
+                        <div style="text-align:center;">
+                            <img src="assets/image/recordbutton.gif" style="text-align:center;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" *ngIf="url">
+                    <div class="col-sm-10">
+                        <audio controls="">
+                            <source [src]="sanitize(url)" type="audio/wav">
+                        </audio>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label class="control-label">
+                            Comments :
+                        </label>
+                    </div>
+                    <div class="col-sm-8" class="control-label">
+                        <textarea class="form-control" rows="2" maxlength="200" [(ngModel)]="txtcomments"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="saveProunciationUserDetails()">Save</button>
+                </div>
+                <span style="font-size: 12px;">*Note : To Re-Record,click on Start Recording button again.</span>
+            </div>
+        </div>
+    </div>
+</div>
