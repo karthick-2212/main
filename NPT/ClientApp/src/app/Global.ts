@@ -4,4 +4,5 @@ export class GlobalFunctions {
         return input === undefined || input === null || input.match(/^ *$/) !== null;
     }
 
+    
 }
