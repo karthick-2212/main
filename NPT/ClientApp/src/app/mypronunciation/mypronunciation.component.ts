@@ -108,15 +108,14 @@ export class MypronunciationComponent implements OnInit {
     });
   }
   getStandardPronunciation() {
-    GlobalFunctions.StandardPronunciation(this.pronunciationUserDetailresponse.fullname, this.selectedcountry)
-    // this.standardpronunciationrequest =
-    // {
-    //   employeeID: this.pronunciationUserDetailresponse.employeeId,
-    //   fullName: this.pronunciationUserDetailresponse.fullname,
-    //   country: this.selectedcountry,
-    //   voicespeed: this.selectedvoicespeed
-    // }
-    // this.standardpronunciation = this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
+    this.standardpronunciationrequest =
+    {
+      employeeID: this.pronunciationUserDetailresponse.employeeId,
+      fullName: this.pronunciationUserDetailresponse.fullname,
+      country: this.selectedcountry,
+      voicespeed: this.selectedvoicespeed
+    }
+    this.standardpronunciation = this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
   }
   
   editPronunciation() {

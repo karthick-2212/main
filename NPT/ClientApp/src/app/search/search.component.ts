@@ -79,15 +79,14 @@ export class SearchComponent implements OnInit {
   }
   listenStandardPronunciation() {
    
-    GlobalFunctions.StandardPronunciation(this.searchresponse.fullname, this.selectedcountry)
-    // this.standardpronunciationrequest =
-    // {
-    //   employeeID: this.searchresponse.employeeId,
-    //   fullName: this.searchresponse.fullname,
-    //   country: this.selectedcountry,
-    //   voicespeed: "Slow"
-    // }
-    // this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
+    this.standardpronunciationrequest =
+    {
+      employeeID: this.searchresponse.employeeId,
+      fullName: this.searchresponse.fullname,
+      country: this.selectedcountry,
+      voicespeed: "Slow"
+    }
+    this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
     
   }
 
