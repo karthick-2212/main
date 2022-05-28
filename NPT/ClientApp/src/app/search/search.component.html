@@ -6,13 +6,13 @@
         <div class="form-group row">
 
             <label for="inputPassword" class="col-sm-1 col-form-label">Search</label>
-            <div class="col-sm-6">
+            <div class="col-sm-6 input-group">
                 <input type="text" class="form-control" [(ngModel)]="searchrequest.searchtxt" id="inputsearch"
                     placeholder="Search with Employee Id">
-            </div>
-            <div class="col-sm-1">
-                <img src="assets/image/search-button.png" class="btn_search_icon" title="Search" alt="Search"
-                    (click)="search()" />
+                <div class="input-group-append">
+                    <img src="assets/image/search-button.png" class="btn_search_icon" title="Search" alt="Search"
+                        (click)="search()" />
+                </div>
             </div>
         </div>
     </div>
@@ -131,8 +131,9 @@
                         Name Pronunciation :
                     </label>
                     <label class="control-label">
-                        &nbsp;&nbsp; <button class="btn btn-primary" (click)="listenStandardPronunciation()" [disabled]="(selectedcountry=='')?true:false"
-                            style="cursor: pointer;"> <i class="bi bi-mic"></i>Standard Pronunciation</button>
+                        &nbsp;&nbsp; <button class="btn btn-primary" (click)="listenStandardPronunciation()"
+                            [disabled]="(selectedcountry=='')?true:false" style="cursor: pointer;"> <i
+                                class="bi bi-mic"></i>Standard Pronunciation</button>
                     </label>
                 </div>
                 <div class="col-2"
@@ -141,7 +142,8 @@
                         Name Pronunciation :
                     </label>
                 </div>
-                <div class="col-4" *ngIf="searchresponse.isCustomPronunciationAvailable && (searchresponse.overrideStandardPronunciation || isadmin)">
+                <div class="col-4"
+                    *ngIf="searchresponse.isCustomPronunciationAvailable && (searchresponse.overrideStandardPronunciation || isadmin)">
                     <audio [src]="sanitize(audioSource)" id="audio" controls #audioTag class="form-control">
                     </audio>
                 </div>

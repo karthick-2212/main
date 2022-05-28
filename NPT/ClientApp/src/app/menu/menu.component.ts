@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { roleRequestModel, roleResponsemodel } from 'src/app/models/rolemodel';
-import { RoleService } from 'src/app/services/role.service'
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -13,27 +12,12 @@ export class MenuComponent implements OnInit {
   showSearch: boolean = false;
   loggedinUserId: string;
 
-  rolerequest: roleRequestModel;
-  roleresponse: roleResponsemodel;
+ 
 
-  constructor(private roleService: RoleService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.loggedinUserId = sessionStorage.getItem('loggedUser');
-    this.getUserRoles();
-  }
-
-  getUserRoles() {
-    this.rolerequest =
-    {
-      loggedinId: this.loggedinUserId
-    }
-    this.roleService.GetUserRoles(this.rolerequest).subscribe(res => {
-      this.roleresponse = res;
-      sessionStorage.setItem('isadmin', (this.roleresponse.isAdmin) ? "true" : "false");
-
-    });
-
+    this.loggedinUserId = sessionStorage.getItem('loggedUser');  
   }
 
   menuclick(id: number) {
