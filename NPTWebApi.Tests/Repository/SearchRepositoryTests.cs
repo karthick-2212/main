@@ -7,16 +7,22 @@ using NPT.DataAccess.Repository;
 using NPT.Model.RequestModel;
 using NPT.Model.ResponseModel;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace NPTWebApi.Tests.Repository
 {
     public class SearchRepositoryTests
     {
         private MockRepository mockRepository;
-
+        private string connectionstring;
         public SearchRepositoryTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
+            IConfiguration config = builder.Build();
+            connectionstring = config.GetValue<string>("ConnectionStrings:NPTContextConnection");
         }
 
         private SearchRepository CreateSearchRepository()
@@ -25,31 +31,28 @@ namespace NPTWebApi.Tests.Repository
         }
 
         [Fact]
-        public void CheckTypeforModel_EmployeeID()
+        public async void SearchPronunciationDetails()
         {
+
             //Arrange
             var searchrepo = this.CreateSearchRepository();
-            string strConnectionString = "test";
-            
+
             SearchRequestModel request = new SearchRequestModel();
             SearchResponseModel response = new SearchResponseModel();
-            request.Searchtxt = "2022001";
-            request.LanId = "2022001";
-            
+            request.Searchtxt = "2022003";
+
             ////Act
-            //response = searchrepo.SearchPronunciationDetails(request, Conn);
-            ////Assert
-            //Assert.NotNull(response.lanid);
-            //Assert.NotNull(response.Firstname);
-            //Assert.NotNull(response.Lastname);
-            //Assert.NotNull(response.Fullname);
-            //Assert.NotNull(response.Comments);
-            //Assert.NotNull(response.Createdby);
-            //Assert.NotNull(response.Managername);
-            //Assert.NotNull(response.Comments);
+            response = await searchrepo.SearchPronunciationDetails(request, connectionstring);
+            //Assert
+            Assert.NotNull(response.lanid);
+            Assert.NotNull(response.Firstname);
+            Assert.NotNull(response.Lastname);
+            Assert.NotNull(response.Fullname);
+            Assert.NotNull(response.LoggedinId);
+            Assert.NotNull(response.Managername);
+            Assert.NotNull(response.Phone);
 
             //Assert
-            // Assert.IsType<string>(customPronunciationRequest.EmployeeID);
             this.mockRepository.Verify();
 
         }
