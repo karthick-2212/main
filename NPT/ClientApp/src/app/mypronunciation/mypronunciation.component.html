@@ -20,14 +20,15 @@
                         {{ pronunciationUserDetailresponse.employeeId}}
                     </label>
                 </div>
-                <div class="col-8">
+                <div class="col-4">
                     <label class="control-label">
-                        Email:
+                        Lan ID:
                     </label>
                     <label class="control-label">
-                        {{ pronunciationUserDetailresponse.emailAddress}}
+                        {{ pronunciationUserDetailresponse.lanid}}
                     </label>
                 </div>
+
             </div>
             <div class="form-group row">
                 <div class="col-4">
@@ -40,10 +41,10 @@
                 </div>
                 <div class="col-4">
                     <label class="control-label">
-                         Lan ID:
+                        Manager Name:
                     </label>
                     <label class="control-label">
-                        {{ pronunciationUserDetailresponse.lanid}}
+                        {{ pronunciationUserDetailresponse.managername}}
                     </label>
                 </div>
                 <div class="col-4">
@@ -69,12 +70,12 @@
                         <label for="adminfalse">False</label>
                     </label>
                 </div>
-                <div class="col-4">
+                <div class="col-8">
                     <label class="control-label">
-                        Manager Name:
+                        Email:
                     </label>
                     <label class="control-label">
-                        {{ pronunciationUserDetailresponse.managername}}
+                        {{ pronunciationUserDetailresponse.emailAddress}}
                     </label>
                 </div>
             </div>
@@ -226,9 +227,23 @@
                     </label>
                 </div>
             </div>
+            <div class="form-group row">
+                &nbsp;&nbsp;
+                <div class="col-sm-5" class="control-label">
+                    <label class="control-label">
+                        <b> OptOut from Pronunciation Service ?</b>
+                    </label>
+                    <div class="form-check form-check-inline">
+                        &nbsp;<input class="form-check-input" type="checkbox" name="optoutpronunciation" id="optoutpronunciation" [checked]="optoutpronunciationservice"
+                            (change)="optoutfrompronunciationchange($event.target)">
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
+
 
 
 <!-- Modal -->
@@ -252,7 +267,7 @@
                             {{ pronunciationUserDetailresponse.fullname}}
                         </label>
                     </div>
-                  
+
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">

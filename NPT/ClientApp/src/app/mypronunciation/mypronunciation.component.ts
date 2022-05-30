@@ -5,8 +5,9 @@ import { Pronunciationservice } from 'src/app/services/pronunciation.service';
 import { standardpronunciationRequestModel } from 'src/app/models/standardpronunciationmodel';
 import { pronunciationUserDetailRequestModel, pronunciationUserDetailResponseModel, saveCustomPronunciationRequestModel, saveCustomPronunciationResponseModel } from 'src/app/models/pronunciationuserDetailsmodel'
 import { deleterpronunciationRequestmodel, deleterpronunciationResponseModel } from 'src/app/models/deletepronunciationmodel';
+import { optoutRequestModel, optoutResponseModel } from 'src/app/models/optoutpronunciationmodel';
 declare var jQuery: any;
-import { GlobalFunctions } from 'src/app/Global'
+
 
 @Component({
   selector: 'app-mypronunciation',
@@ -35,11 +36,14 @@ export class MypronunciationComponent implements OnInit {
   deleterpronunciationrrequest: deleterpronunciationRequestmodel;
   deleterpronunciationresponse: deleterpronunciationResponseModel;
 
+  optoutrequest: optoutRequestModel;
+  optoutresponse: optoutResponseModel;
 
   selectedcountry: string = "";
   selectedvoicespeed: string = "Slow";
   txtcomments: string = '';
   OverrideStandardPronunciation: boolean = true;
+  optoutpronunciationservice: boolean = false;
   showloader: boolean = false;
   audioSource: string = '';
   constructor(private domSanitizer: DomSanitizer, private pronunciationservice: Pronunciationservice) { }
@@ -117,7 +121,7 @@ export class MypronunciationComponent implements OnInit {
     }
     this.standardpronunciation = this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
   }
-  
+
   editPronunciation() {
     this.txtcomments = this.pronunciationUserDetailresponse.comments;
     this.OverrideStandardPronunciation = this.pronunciationUserDetailresponse.overrideStandardPronunciation;
@@ -159,6 +163,27 @@ export class MypronunciationComponent implements OnInit {
     }
   }
 
+  optoutfrompronunciationchange(val: any) {
+    this.optoutrequest =
+    {
+      isoptedout: val.checked,
+      loggedinuserId: this.loggedinUserID,
+      employeeid: this.pronunciationUserDetailresponse.employeeId
+    }
+    if (val.checked == true) {
+      if (confirm('Are you sure to Opt out of Pronunciation Service ?')) {
+        this.pronunciationservice.optoutfromPronunciation(this.optoutrequest).subscribe(res => {
+          this.optoutresponse = res;
+        });
+      }
+    }
+    else if (val.checked == false) {
+      this.pronunciationservice.optoutfromPronunciation(this.optoutrequest).subscribe(res => {
+        this.optoutresponse = res;
+      });
+    }
+
+  }
 
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);

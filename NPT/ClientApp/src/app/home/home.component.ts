@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit {
       sessionStorage.setItem('isadmin', (this.roleresponse.isAdmin) ? "true" : "false");
 
     });
-
   }
+  
   logout() {
     if (confirm("Are you sure to Sign-Out ?"))
       this.msalService.logout();

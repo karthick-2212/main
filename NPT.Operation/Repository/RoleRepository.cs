@@ -40,7 +40,6 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

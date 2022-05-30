@@ -14,5 +14,7 @@ namespace NPT.DataAccess.Interfaces
         Task<SaveCustomPronunciationResponseModel> SaveCustomPronunciation(SaveCustomPronunciationRequestModel request,string conn);
 
         Task<DeleteCustomPronunciationResponseModel> DeleteCustomPronunciation(DeleteCustomPronunciationRequestModel request,string conn);
+
+        Task<OptOutResponseModel> OptOutfromPronunciationservice(OptOutRequestModel request, string strConnString);
     }
 }

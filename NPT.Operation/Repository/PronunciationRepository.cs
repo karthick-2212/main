@@ -183,5 +183,14 @@ namespace NPT.DataAccess.Repository
             return response;
         }
 
+
+        public async Task<OptOutResponseModel> OptOutfromPronunciationservice(OptOutRequestModel request, string strConnString)
+        {
+            OptOutResponseModel response = new OptOutResponseModel();
+            //DB CALL
+
+            response.Success = true;
+            return response;
+        }
     }
 }
