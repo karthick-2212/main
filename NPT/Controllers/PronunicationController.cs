@@ -149,6 +149,24 @@ namespace NPT.Controllers
 
         }
 
+
+
+        [Route("api/pronunciation/OptOutPronunciation/v1")]
+        [HttpPost]
+        public async Task<ActionResult> OptOutfromPronunciaionservice([FromBody] OptOutRequestModel request)
+        {
+            try
+            {
+                string Conn = Configuration.GetConnectionString("NPTContextConnection");
+                return Ok(await repo.OptOutfromPronunciationservice(request, Conn));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
     }
 
 }
