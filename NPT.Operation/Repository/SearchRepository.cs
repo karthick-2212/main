@@ -44,7 +44,8 @@ namespace NPT.DataAccess.Repository
                         response.Managername = actualData.Tables[0].Rows[0]["rep_to_mgr_name"].ToString();
                         response.IsAdmin = (Boolean)actualData.Tables[0].Rows[0]["isadmin"];
                         response.lanid = actualData.Tables[0].Rows[0]["elid"].ToString();
-                        response.OptOutPronunciationService = (!(actualData.Tables[0].Rows[0]["optoutfrompronunciation"] is DBNull)) ? (Boolean)actualData.Tables[0].Rows[0]["optoutfrompronunciation"] : false;
+                        bool? nullvalue = null;
+                        response.OptOutPronunciationService = (!(actualData.Tables[0].Rows[0]["optoutfrompronunciation"] is DBNull)) ? (Boolean)actualData.Tables[0].Rows[0]["optoutfrompronunciation"] : nullvalue;
                         response.IsCustomPronunciationAvailable = (string.IsNullOrEmpty(Convert.ToString(actualData.Tables[0].Rows[0]["pronunciation"]))) ? false : true;
                         if (response.IsCustomPronunciationAvailable)
                         {

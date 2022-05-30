@@ -13,5 +13,7 @@ namespace NPT.Model.RequestModel
         public bool OverrideStandardPronunciation { get; set; }
         public bool Isupdate { get; set; }
         public string Comments { get; set; }
+
+        public bool ? OptOutPronunciationService { get; set; }
     }
 }

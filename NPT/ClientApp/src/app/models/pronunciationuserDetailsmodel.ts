@@ -28,7 +28,8 @@ export interface saveCustomPronunciationRequestModel {
     customPronunciationVoiceAsBase64: string,
     overrideStandardPronunciation: boolean,
     comments: string,
-    isupdate:boolean
+    isupdate:boolean,
+    optOutPronunciationService:boolean
 }
 export interface saveCustomPronunciationResponseModel {
     success: boolean,

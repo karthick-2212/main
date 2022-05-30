@@ -74,7 +74,7 @@ export class MypronunciationComponent implements OnInit {
       comments: '',
       overrideStandardPronunciation: true,
       lanid: '',
-      optOutPronunciationService:false
+      optOutPronunciationService: false
     }
     this.saveCustomPronunciationrequest =
     {
@@ -83,7 +83,8 @@ export class MypronunciationComponent implements OnInit {
       overrideStandardPronunciation: null,
       customPronunciationVoiceAsBase64: '',
       isupdate: false,
-      comments: ''
+      comments: '',
+      optOutPronunciationService: false
 
     }
     this.saveCustomPronunciationresponse =
@@ -105,7 +106,7 @@ export class MypronunciationComponent implements OnInit {
     }
     this.pronunciationservice.GetProunciationUserDetails(this.pronunciationUserDetailrequest).subscribe(res => {
       this.pronunciationUserDetailresponse = res;
-      this.optoutpronunciationservice=this.pronunciationUserDetailresponse.optOutPronunciationService;
+      this.optoutpronunciationservice = this.pronunciationUserDetailresponse.optOutPronunciationService;
       this.showloader = false;
       if (this.pronunciationUserDetailresponse.isCustomPronunciationAvailable) {
         this.ViewprocessRecording(this.pronunciationUserDetailresponse.customPronunciation);
@@ -136,7 +137,8 @@ export class MypronunciationComponent implements OnInit {
     this.saveCustomPronunciationrequest.loggedinId = this.loggedinUserID;
     this.saveCustomPronunciationrequest.employeeId = this.pronunciationUserDetailresponse.employeeId;
     this.saveCustomPronunciationrequest.overrideStandardPronunciation = this.OverrideStandardPronunciation;
-    if (!this.saveCustomPronunciationrequest.isupdate) {
+    this.saveCustomPronunciationrequest.optOutPronunciationService = this.optoutpronunciationservice;
+    if (!this.saveCustomPronunciationrequest.isupdate && this.optoutpronunciationservice == null) {
       this.saveCustomPronunciationrequest.isupdate = false;
     }
     this.saveCustomPronunciationrequest.comments = this.txtcomments;

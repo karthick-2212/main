@@ -204,7 +204,8 @@ export class SearchComponent implements OnInit {
         overrideStandardPronunciation: null,
         customPronunciationVoiceAsBase64: '',
         isupdate: null,
-        comments: ''
+        comments: '',
+        optOutPronunciationService:false
       }
       this.saveCustomPronunciationresponse =
       {

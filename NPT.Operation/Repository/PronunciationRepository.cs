@@ -42,7 +42,8 @@ namespace NPT.DataAccess.Repository
                 response.Managername = actualData.Tables[0].Rows[0]["rep_to_mgr_name"].ToString();
                 response.IsAdmin = (Boolean)actualData.Tables[0].Rows[0]["isadmin"];
                 response.lanid = actualData.Tables[0].Rows[0]["elid"].ToString();
-                response.OptOutPronunciationService = (!(actualData.Tables[0].Rows[0]["optoutfrompronunciation"] is DBNull)) ? (Boolean)actualData.Tables[0].Rows[0]["optoutfrompronunciation"] : false;
+                bool? nullvalue = null;
+                response.OptOutPronunciationService = (!(actualData.Tables[0].Rows[0]["optoutfrompronunciation"] is DBNull)) ? (Boolean)actualData.Tables[0].Rows[0]["optoutfrompronunciation"] : nullvalue;
                 response.IsCustomPronunciationAvailable = (string.IsNullOrEmpty(Convert.ToString(actualData.Tables[0].Rows[0]["pronunciation"]))) ? false : true;
                 if (response.IsCustomPronunciationAvailable)
                 {
@@ -95,8 +96,9 @@ namespace NPT.DataAccess.Repository
                 {
                     transType = "UPDATE";
                 }
-
-                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','" + content[1] + "', 'false', '" + request.OverrideStandardPronunciation + "','false','" + transType + "', '" + request.EmployeeId + "','" + request.Comments + "' )";
+                if (request.OptOutPronunciationService == null)
+                    request.OptOutPronunciationService = false;
+                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','" + content[1] + "', 'false', '" + request.OverrideStandardPronunciation + "','" + request.OptOutPronunciationService + "','" + transType + "', '" + request.EmployeeId + "','" + request.Comments + "' )";
                 comm.ExecuteNonQuery();
 
             }
@@ -196,7 +198,7 @@ namespace NPT.DataAccess.Repository
                 NpgsqlCommand comm = new NpgsqlCommand();
                 comm.Connection = conn;
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','UPDATE','','')";
+                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','INSERT','','')";
                 comm.ExecuteNonQuery();
             }
             catch (Exception ex)
