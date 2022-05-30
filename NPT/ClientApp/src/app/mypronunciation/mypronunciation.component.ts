@@ -7,7 +7,7 @@ import { pronunciationUserDetailRequestModel, pronunciationUserDetailResponseMod
 import { deleterpronunciationRequestmodel, deleterpronunciationResponseModel } from 'src/app/models/deletepronunciationmodel';
 import { optoutRequestModel, optoutResponseModel } from 'src/app/models/optoutpronunciationmodel';
 declare var jQuery: any;
-
+import { GlobalFunctions } from '../Global';
 
 @Component({
   selector: 'app-mypronunciation',
@@ -141,16 +141,22 @@ export class MypronunciationComponent implements OnInit {
     if (!this.saveCustomPronunciationrequest.isupdate && this.optoutpronunciationservice == null) {
       this.saveCustomPronunciationrequest.isupdate = false;
     }
+    else
+      this.saveCustomPronunciationrequest.isupdate = true;
     this.saveCustomPronunciationrequest.comments = this.txtcomments;
+    if (!GlobalFunctions.IsNullorEmpty(this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64)) {
+      this.pronunciationservice.SaveProunciationUserDetails(this.saveCustomPronunciationrequest).subscribe(res => {
 
-    this.pronunciationservice.SaveProunciationUserDetails(this.saveCustomPronunciationrequest).subscribe(res => {
-
-      this.saveCustomPronunciationresponse = res;
-      jQuery("#exampleModalCenter").modal('hide');
-      this.showloader = true;
-      this.getProunciationUserDetails();
-      this.url = '';
-    });
+        this.saveCustomPronunciationresponse = res;
+        jQuery("#exampleModalCenter").modal('hide');
+        this.showloader = true;
+        this.getProunciationUserDetails();
+        this.url = '';
+      });
+    }
+    else {
+      alert('Please record the Pronunciation.')
+    }
   }
 
   deletePronunciation() {
@@ -182,9 +188,11 @@ export class MypronunciationComponent implements OnInit {
       }
     }
     else if (val.checked == false) {
-      this.pronunciationservice.optoutfromPronunciation(this.optoutrequest).subscribe(res => {
-        this.optoutresponse = res;
-      });
+      if (confirm('Are you sure to disable from  Opt Out Pronunciation Service ?')) {
+        this.pronunciationservice.optoutfromPronunciation(this.optoutrequest).subscribe(res => {
+          this.optoutresponse = res;
+        });
+      }
     }
 
   }
