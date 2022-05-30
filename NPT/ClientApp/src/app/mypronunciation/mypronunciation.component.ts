@@ -73,7 +73,8 @@ export class MypronunciationComponent implements OnInit {
       createdby: '',
       comments: '',
       overrideStandardPronunciation: true,
-      lanid: ''
+      lanid: '',
+      optOutPronunciationService:false
     }
     this.saveCustomPronunciationrequest =
     {
@@ -104,6 +105,7 @@ export class MypronunciationComponent implements OnInit {
     }
     this.pronunciationservice.GetProunciationUserDetails(this.pronunciationUserDetailrequest).subscribe(res => {
       this.pronunciationUserDetailresponse = res;
+      this.optoutpronunciationservice=this.pronunciationUserDetailresponse.optOutPronunciationService;
       this.showloader = false;
       if (this.pronunciationUserDetailresponse.isCustomPronunciationAvailable) {
         this.ViewprocessRecording(this.pronunciationUserDetailresponse.customPronunciation);

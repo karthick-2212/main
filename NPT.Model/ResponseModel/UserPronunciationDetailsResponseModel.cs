@@ -25,5 +25,7 @@ namespace NPT.Model.ResponseModel
 
         public string lanid { get; set; }
 
+        public bool? OptOutPronunciationService { get; set; }
+
     }
 }

@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   showloader: boolean = false;
   public loggedinUserID: string;
   public isadmin: boolean = false;
-
+  public Isoptedout: boolean = false;
   private record: any;
   public recording: boolean = false;
   public url: any;
@@ -62,23 +62,29 @@ export class SearchComponent implements OnInit {
       this.searchservice.SearchPronunciation(this.searchrequest).subscribe(res => {
         if (res != null && res != undefined) {
           this.searchresponse = res;
-          console.log(this.searchresponse);
-          this.showSearchresult = true;
-          if (res.isCustomPronunciationAvailable && (res.overrideStandardPronunciation || this.isadmin)) {
-            this.ViewprocessRecording(this.searchresponse.customPronunciation);
-            this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = this.searchresponse.customPronunciation;
+          this.Isoptedout = false;
+          if (this.searchresponse.optOutPronunciationService) {
+            this.Isoptedout = true;
+          }
+          else {
+            this.showSearchresult = true;
+            if (res.isCustomPronunciationAvailable && (res.overrideStandardPronunciation || this.isadmin)) {
+              this.ViewprocessRecording(this.searchresponse.customPronunciation);
+              this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = this.searchresponse.customPronunciation;
+            }
           }
         }
       });
     } else {
       alert('Please enter a Valid text to search !')
+
     }
   }
   sanitize(url: string) {
     return this.domSanitizer.bypassSecurityTrustUrl(url);
   }
   listenStandardPronunciation() {
-   
+
     this.standardpronunciationrequest =
     {
       employeeID: this.searchresponse.employeeId,
@@ -87,7 +93,7 @@ export class SearchComponent implements OnInit {
       voicespeed: "Slow"
     }
     this.pronunciationservice.GetStandardPronunciation(this.standardpronunciationrequest);
-    
+
   }
 
   saveProunciationUserDetails() {
@@ -130,9 +136,6 @@ export class SearchComponent implements OnInit {
   }
 
   editPronunciation() {
-    console.log(this.getpronunciationresponse);
-    console.log(this.getpronunciationresponse.comments);
-
     this.txtcomments = this.getpronunciationresponse.comments;
     this.OverrideStandardPronunciation = this.searchresponse.overrideStandardPronunciation;
     this.saveCustomPronunciationrequest.isupdate = true;
@@ -184,7 +187,8 @@ export class SearchComponent implements OnInit {
       customPronunciation: '',
       createdby: '',
       comments: '',
-      lanid: ''
+      lanid: '',
+      optOutPronunciationService: false
     }
 
     this.getpronunciationresponse = {

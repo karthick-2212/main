@@ -42,11 +42,10 @@ namespace NPT.DataAccess.Repository
                 response.Managername = actualData.Tables[0].Rows[0]["rep_to_mgr_name"].ToString();
                 response.IsAdmin = (Boolean)actualData.Tables[0].Rows[0]["isadmin"];
                 response.lanid = actualData.Tables[0].Rows[0]["elid"].ToString();
-
+                response.OptOutPronunciationService = (!(actualData.Tables[0].Rows[0]["optoutfrompronunciation"] is DBNull)) ? (Boolean)actualData.Tables[0].Rows[0]["optoutfrompronunciation"] : false;
                 response.IsCustomPronunciationAvailable = (string.IsNullOrEmpty(Convert.ToString(actualData.Tables[0].Rows[0]["pronunciation"]))) ? false : true;
                 if (response.IsCustomPronunciationAvailable)
                 {
-
                     var buffers = (byte[])actualData.Tables[0].Rows[0]["pronunciation"];
                     response.CustomPronunciation = Encoding.UTF8.GetString(buffers);
                     response.OverrideStandardPronunciation = (Boolean)actualData.Tables[0].Rows[0]["overridestandardpronunciation"];
@@ -188,6 +187,27 @@ namespace NPT.DataAccess.Repository
         {
             OptOutResponseModel response = new OptOutResponseModel();
             //DB CALL
+
+            NpgsqlConnection conn = new NpgsqlConnection(strConnString);
+            try
+            {
+                string transType = string.Empty;
+                conn.Open();
+                NpgsqlCommand comm = new NpgsqlCommand();
+                comm.Connection = conn;
+                comm.CommandType = CommandType.Text;
+                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','UPDATE','','')";
+                comm.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
 
             response.Success = true;
             return response;

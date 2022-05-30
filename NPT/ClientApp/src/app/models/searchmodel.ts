@@ -21,6 +21,7 @@ export interface searchResponseModel
     createdby:string,
     overrideStandardPronunciation:boolean,
     comments:string,
-    lanid:string
+    lanid:string,
+    optOutPronunciationService:boolean
     //CustomPronunciation:BinaryType[]
 };

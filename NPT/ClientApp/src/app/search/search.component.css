@@ -1,5 +1,9 @@
-a{
-    text-decoration: underline!important;
+a {
+    text-decoration: underline !important;
     cursor: pointer;
-    color: blue!important;
+    color: blue !important;
+}
+
+.close {
+    color: #856404 !important;
 }

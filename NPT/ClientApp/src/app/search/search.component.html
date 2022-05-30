@@ -18,6 +18,15 @@
     </div>
 </div>
 <br />
+<ng-container *ngIf="Isoptedout">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Currently, this user Opted Out from the Pronunciation Service !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</ng-container>
+
 <ng-container *ngIf="showSearchresult">
     <div class="card">
         <div class="card-header" (click)="issearchInfoHidden=!issearchInfoHidden">
@@ -37,14 +46,15 @@
                         {{ searchresponse.employeeId}}
                     </label>
                 </div>
-                <div class="col-8">
+                <div class="col-4">
                     <label class="control-label">
-                        Email:
+                        Lan ID:
                     </label>
                     <label class="control-label">
-                        {{ searchresponse.emailAddress}}
+                        {{ searchresponse.lanid}}
                     </label>
                 </div>
+
             </div>
             <div class="form-group row">
                 <div class="col-4">
@@ -57,10 +67,10 @@
                 </div>
                 <div class="col-4">
                     <label class="control-label">
-                        Lan ID:
+                        Manager Name:
                     </label>
                     <label class="control-label">
-                        {{ searchresponse.lanid}}
+                        {{ searchresponse.managername}}
                     </label>
                 </div>
                 <div class="col-4">
@@ -73,25 +83,26 @@
                 </div>
             </div>
             <div class="form-group row">
+
                 <div class="col-4">
                     <label class="control-label">
-                        Manager Name:
-                    </label>
-                    <label class="control-label">
-                        {{ searchresponse.managername}}
-                    </label>
-                </div>
-                <div class="col-4">
-                    <label class="control-label">
-                        Is Custom Pronunciation ? :
+                        <b> Is Custom Pronunciation ?</b> :
                     </label>
                     <label class="control-label">
                         <input type="radio" id="custompronunciationtrue" [value]="true" disabled="true"
                             [(ngModel)]="searchresponse.isCustomPronunciationAvailable">
-                        <label for="admintrue">Yes</label>
+                            <b><label for="admintrue">Yes</label></b>
                         <input type="radio" id="custompronunciationfalse" [value]="false" disabled="true"
                             [(ngModel)]="searchresponse.isCustomPronunciationAvailable">
-                        <label for="adminfalse">No</label>
+                            <b><label for="adminfalse">No</label></b>
+                    </label>
+                </div>
+                <div class="col-8">
+                    <label class="control-label">
+                        Email:
+                    </label>
+                    <label class="control-label">
+                        {{ searchresponse.emailAddress}}
                     </label>
                 </div>
             </div>
