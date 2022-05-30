@@ -198,7 +198,8 @@ namespace NPT.DataAccess.Repository
                 NpgsqlCommand comm = new NpgsqlCommand();
                 comm.Connection = conn;
                 comm.CommandType = CommandType.Text;
-                comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','INSERT','','')";
+                //comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','INSERT','','')";
+                comm.CommandText = RepoConstants.SaveOutPutCustomPronunciation + "('" + request.EmployeeId + "','" + request.IsoptedOut + "')";
                 comm.ExecuteNonQuery();
             }
             catch (Exception ex)

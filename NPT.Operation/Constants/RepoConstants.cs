@@ -11,5 +11,6 @@ namespace NPT.DataAccess.Constants
         public const string SaveCustomPronunciation = "CALL \"Crypto\".savecustompronunciation";
         public const string GetCustomPronunciationByEmplid = "SELECT * from \"Crypto\".getcustompronunciationbyemplid";
         public const string GetRolesByEmpID = "SELECT isadmin from \"Crypto\".getemployeedetailsbyemailid";
+        public const string SaveOutPutCustomPronunciation = "CALL \"Crypto\".saveupdateoptoutpronunciation";
     }
 }
