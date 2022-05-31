@@ -105,9 +105,14 @@ export class SearchComponent implements OnInit {
     if (this.saveCustomPronunciationrequest.isupdate != null) {
       if (this.saveCustomPronunciationrequest.isupdate)
         this.saveCustomPronunciationrequest.isupdate = true;
+      else if (this.searchresponse.optOutPronunciationService != null)
+        this.saveCustomPronunciationrequest.isupdate = true;
       else
         this.saveCustomPronunciationrequest.isupdate = false;
-    } else
+    }
+    else if (this.searchresponse.optOutPronunciationService != null)
+      this.saveCustomPronunciationrequest.isupdate = true;
+    else
       this.saveCustomPronunciationrequest.isupdate = false;
 
     this.saveCustomPronunciationrequest.comments = this.txtcomments;
@@ -205,7 +210,7 @@ export class SearchComponent implements OnInit {
         customPronunciationVoiceAsBase64: '',
         isupdate: null,
         comments: '',
-        optOutPronunciationService:false
+        optOutPronunciationService: false
       }
       this.saveCustomPronunciationresponse =
       {
