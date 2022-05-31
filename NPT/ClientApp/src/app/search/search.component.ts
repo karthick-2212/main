@@ -70,7 +70,7 @@ export class SearchComponent implements OnInit {
             this.showSearchresult = true;
             if (res.isCustomPronunciationAvailable && (res.overrideStandardPronunciation || this.isadmin)) {
               this.ViewprocessRecording(this.searchresponse.customPronunciation);
-              this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = this.searchresponse.customPronunciation;
+              this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = "data:audio/wav;base64," + this.searchresponse.customPronunciation;
             }
           }
         }

@@ -110,7 +110,7 @@ export class MypronunciationComponent implements OnInit {
       this.showloader = false;
       if (this.pronunciationUserDetailresponse.isCustomPronunciationAvailable) {
         this.ViewprocessRecording(this.pronunciationUserDetailresponse.customPronunciation);
-        this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = this.pronunciationUserDetailresponse.customPronunciation;
+        this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = "data:audio/wav;base64," + this.pronunciationUserDetailresponse.customPronunciation;
       }
     });
   }
