@@ -9,11 +9,16 @@ using NPT.DataAccess.Interfaces;
 using Npgsql;
 using System.Data;
 using NPT.DataAccess.Constants;
+using NPT.Model.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace NPT.DataAccess.Repository
 {
     public class PronunciationRepository : IPronunciationRepository
     {
+      
+
         public async Task<UserPronunciationDetailsResponseModel> GetUserPronunciationDetails(UserPronunciationDetailsRequestModel request, string strConnString)
         {
 
@@ -63,7 +68,7 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
-
+                LoggingRepository.Log(LoggingConstant.GetUserPronunciationDetailsMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request),string.Empty,LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                 throw ex;
             }
             finally
@@ -104,7 +109,7 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
-
+                LoggingRepository.Log(LoggingConstant.SaveCustomPronunciationMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                 throw ex;
             }
             finally
@@ -146,7 +151,7 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
-
+                LoggingRepository.Log(LoggingConstant.GetPronunciationMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                 throw ex;
             }
             finally
@@ -172,7 +177,7 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
-
+                LoggingRepository.Log(LoggingConstant.DeleteCustomPronunciationMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                 throw ex;
             }
             finally
@@ -183,7 +188,6 @@ namespace NPT.DataAccess.Repository
             response.Success = true;
             return response;
         }
-
 
         public async Task<OptOutResponseModel> OptOutfromPronunciationservice(OptOutRequestModel request, string strConnString)
         {
@@ -198,13 +202,12 @@ namespace NPT.DataAccess.Repository
                 NpgsqlCommand comm = new NpgsqlCommand();
                 comm.Connection = conn;
                 comm.CommandType = CommandType.Text;
-                //comm.CommandText = RepoConstants.SaveCustomPronunciation + "('" + request.EmployeeId + "','','false','false','" + request.IsoptedOut + "','INSERT','','')";
                 comm.CommandText = RepoConstants.SaveOutPutCustomPronunciation + "('" + request.EmployeeId + "','" + request.IsoptedOut + "')";
                 comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-
+                LoggingRepository.Log(LoggingConstant.OptOutfromPronunciationserviceMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                 throw ex;
             }
             finally
@@ -215,5 +218,7 @@ namespace NPT.DataAccess.Repository
             response.Success = true;
             return response;
         }
+
+       
     }
 }

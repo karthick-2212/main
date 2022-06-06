@@ -40,6 +40,7 @@ namespace NPT.DataAccess.Repository
             }
             catch (Exception ex)
             {
+                LoggingRepository.Log(LoggingConstant.GetUserRolesMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, string.Empty, LoggingConstant.InternalServerErrorCode, strConnString);
                 throw ex;
             }
             finally

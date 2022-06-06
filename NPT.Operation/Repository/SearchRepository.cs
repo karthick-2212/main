@@ -63,7 +63,7 @@ namespace NPT.DataAccess.Repository
                 }
                 catch (Exception ex)
                 {
-
+                    LoggingRepository.Log(LoggingConstant.SearchPronunciationDetailssMethodName, Newtonsoft.Json.JsonConvert.SerializeObject(request), string.Empty, LoggingConstant.LogTypeError, LoggingConstant.InternalServerErrorCode, ex.Message, strConnString);
                     throw ex;
                 }
                 finally
