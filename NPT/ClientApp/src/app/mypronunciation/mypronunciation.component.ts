@@ -9,6 +9,7 @@ import { optoutRequestModel, optoutResponseModel } from 'src/app/models/optoutpr
 declare var jQuery: any;
 import { GlobalFunctions } from '../Global';
 
+
 @Component({
   selector: 'app-mypronunciation',
   templateUrl: './mypronunciation.component.html',
@@ -95,8 +96,8 @@ export class MypronunciationComponent implements OnInit {
       comments: '',
     }
   }
-  public onOverrideStandardPronunciationoptChanged(val: boolean) {
-    this.OverrideStandardPronunciation = val;
+  public onOverrideStandardPronunciationoptChanged(val) {
+    this.OverrideStandardPronunciation = val.checked;
   }
 
   getProunciationUserDetails() {

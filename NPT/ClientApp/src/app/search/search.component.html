@@ -4,7 +4,6 @@
     </div>
     <div class="card-body">
         <div class="form-group row">
-
             <label for="inputPassword" class="col-sm-1 col-form-label">Search</label>
             <div class="col-sm-6 input-group">
                 <input type="text" class="form-control" [(ngModel)]="searchrequest.searchtxt" id="inputsearch"
@@ -20,7 +19,8 @@
 <br />
 <ng-container *ngIf="Isoptedout">
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <span><i class="bi bi-exclamation-triangle"></i> Note: Currently, this user Opted Out from the Pronunciation Service !</span>
+        <span><i class="bi bi-exclamation-triangle"></i> Note: Currently, this user Opted Out from the Pronunciation
+            Service !</span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -54,7 +54,6 @@
                         {{ searchresponse.lanid}}
                     </label>
                 </div>
-
             </div>
             <div class="form-group row">
                 <div class="col-4">
@@ -91,10 +90,10 @@
                     <label class="control-label">
                         <input type="radio" id="custompronunciationtrue" [value]="true" disabled="true"
                             [(ngModel)]="searchresponse.isCustomPronunciationAvailable">
-                            <b><label for="admintrue">Yes</label></b>
+                        <b><label for="admintrue">Yes</label></b>
                         <input type="radio" id="custompronunciationfalse" [value]="false" disabled="true"
                             [(ngModel)]="searchresponse.isCustomPronunciationAvailable">
-                            <b><label for="adminfalse">No</label></b>
+                        <b><label for="adminfalse">No</label></b>
                     </label>
                 </div>
                 <div class="col-8">
@@ -212,7 +211,7 @@
                             <input class="form-check-input" type="checkbox" name="OverrideStandardPronunciationopt"
                                 id="OverrideStandardPronunciation" value="true"
                                 [checked]="OverrideStandardPronunciation"
-                                (change)="onOverrideStandardPronunciationoptChanged(OverrideStandardPronunciation.checked)">
+                                (change)="onOverrideStandardPronunciationoptChanged($event.target)">
 
                         </div>
                     </div>

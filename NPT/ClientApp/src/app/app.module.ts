@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 
@@ -18,6 +19,8 @@ import { Searchservice } from './services/search.servics';
 import { RoleService } from 'src/app/services/role.service'
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 
+
+
 export function MSALInstanceFactory(): IPublicClientApplication {
 
   return new PublicClientApplication({
@@ -28,6 +31,10 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     }
   })
 }
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +55,13 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       { path: 'home', component: HomeComponent }
     ], { useHash: true, onSameUrlNavigation: 'reload' })
   ],
-  providers: [Pronunciationservice, Searchservice,
+  providers: [
     {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory
     },
+    Pronunciationservice,
+    Searchservice,
     MsalService,
     RoleService
   ],

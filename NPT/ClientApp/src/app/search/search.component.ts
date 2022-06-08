@@ -59,10 +59,11 @@ export class SearchComponent implements OnInit {
 
   search() {
     if (!GlobalFunctions.IsNullorEmpty(this.searchrequest.searchtxt)) {
+      this.showSearchresult = false;
+      this.Isoptedout = false;
       this.searchservice.SearchPronunciation(this.searchrequest).subscribe(res => {
         if (res != null && res != undefined) {
           this.searchresponse = res;
-          this.Isoptedout = false;
           if (this.searchresponse.optOutPronunciationService) {
             this.Isoptedout = true;
           }
@@ -70,9 +71,14 @@ export class SearchComponent implements OnInit {
             this.showSearchresult = true;
             if (res.isCustomPronunciationAvailable && (res.overrideStandardPronunciation || this.isadmin)) {
               this.ViewprocessRecording(this.searchresponse.customPronunciation);
-              this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = "data:audio/wav;base64," + this.searchresponse.customPronunciation;
+              if (this.isadmin) {
+                this.saveCustomPronunciationrequest.customPronunciationVoiceAsBase64 = "data:audio/wav;base64," + this.searchresponse.customPronunciation;
+              }
             }
           }
+        }
+        else {
+          alert('No Records to Display .')
         }
       });
     } else {
@@ -221,8 +227,8 @@ export class SearchComponent implements OnInit {
       }
     }
   }
-  public onOverrideStandardPronunciationoptChanged(val: boolean) {
-    this.OverrideStandardPronunciation = val;
+  public onOverrideStandardPronunciationoptChanged(val) {
+    this.OverrideStandardPronunciation = val.checked;
   }
   initiateRecording() {
     this.url = '';
